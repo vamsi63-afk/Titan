@@ -916,9 +916,11 @@ client.on('interactionCreate', async (interaction) => {
       });
 delete require.cache[require.resolve("./prefix.json")];
       if (config.enablePrefix) {
-        client.on('messageCreate', async (message) => {
-          if (message.author.bot || !message.guild) return;
-          const currentPrefix = require("./prefix.json").prefix;
+  client.on('messageCreate', async (message) => {
+    if (message.author.bot || !message.guild) return;
+
+    delete require.cache[require.resolve("./prefix.json")];
+    const currentPrefix = require("./prefix.json").prefix;
 
           if (!message.content.startsWith(currentPrefix)) return;
 
