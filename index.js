@@ -914,7 +914,7 @@ client.on('interactionCreate', async (interaction) => {
           await interaction.reply({ components: [helpContainer], flags: MessageFlags.IsComponentsV2 });
         }
       });
-
+delete require.cache[require.resolve("./prefix.json")];
       if (config.enablePrefix) {
         client.on('messageCreate', async (message) => {
           if (message.author.bot || !message.guild) return;
