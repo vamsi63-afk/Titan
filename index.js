@@ -1049,22 +1049,21 @@ delete require.cache[require.resolve("./prefix.json")];
           }
 
           if (command === 'volume') {
-            const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
-            if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
-              return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
-            }
+    const player = riffy.players.get(message.guild.id);
+    if (!player) return message.reply(`${config.emojis.error} No player found`);
+    if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
+      return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
+    }
 
-            const volume = parseInt(args[0]);
-            if (isNaN(volume) || volume < 1 || volume > 100) {
-              return message.reply(`${config.emojis.error} Please provide a volume between 1-100`);
-            }
+    const volume = parseInt(args[0]);
+    if (isNaN(volume) || volume < 1 || volume > 200) {
+      return message.reply(`${config.emojis.error} Please provide a volume between 1-200`);
+    }
 
-            player.setVolume(volume);
-            const container = createSimpleContainer('Volume Set', `Volume set to ${volume}%`, config.emojis.volume);
-            await message.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
-          }
-
+    player.setVolume(volume);
+    const container = createSimpleContainer('Volume Set', `Volume set to ${volume}%`, config.emojis.volume);
+    await message.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
+      }
           if (command === 'queue') {
             const player = riffy.players.get(message.guild.id);
             if (!player) return message.reply(`${config.emojis.error} No player found`);
