@@ -1321,7 +1321,7 @@ client.on('interactionCreate', async (interaction) => {
 const fs = require("fs");
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
-
+delete require.cache[require.resolve("./prefix.json")];
   const currentPrefix = require("./prefix.json").prefix;
 
   if (message.content.startsWith(currentPrefix + "prefix")) {
