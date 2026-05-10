@@ -1,18 +1,18 @@
 // config.js
 module.exports = {
   token: process.env.DISCORD_TOKEN,
-  prefix: require("./prefix.json").prefix || "."
+prefix: require("./prefix.json").prefix || ".",
   enablePrefix: true,
   supportServer: "https://discord.gg/9MVAPpfs8D",
 
   activity: {
     name: "/help",
-    type: "LISTENING" // PLAYING, LISTENING, WATCHING, STREAMING, COMPETING
+    type: "LISTENING", // PLAYING, LISTENING, WATCHING, STREAMING, COMPETING
   },
 
   express: {
     enabled: true,
-    port: 5000
+    port: 5000,
   },
 
   emojis: {
@@ -27,7 +27,7 @@ module.exports = {
     volume: "🔊",
     success: "✅",
     error: "❌",
-    info: "ℹ️"
+    info: "ℹ️", 
   },
 
   aliases: {
@@ -59,7 +59,7 @@ module.exports = {
         host: "lavalinkv4.serenetia.com",
         port: 80,
         password: "https://seretia.link/discord",
-        secure: false
+        secure: false, 
       }
     ]
   }
